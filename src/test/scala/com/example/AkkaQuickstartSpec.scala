@@ -1,9 +1,10 @@
 //#full-example
 package com.example
 
-import org.scalatest.{ BeforeAndAfterAll, WordSpecLike, Matchers }
-import akka.actor.ActorSystem
-import akka.testkit.{ TestKit, TestProbe }
+import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
+import akka.actor.{ActorSystem, PoisonPill}
+import akka.testkit.{TestKit, TestProbe}
+
 import scala.concurrent.duration._
 import scala.language.postfixOps
 import Greeter._
@@ -17,7 +18,7 @@ class AkkaQuickstartSpec(_system: ActorSystem)
   with BeforeAndAfterAll {
   //#test-classes
 
-  def this() = this(ActorSystem("AkkaQuickstartSpec"))
+  def this() = this(ActorSystem("AkkaQuickStart"))
 
   override def afterAll: Unit = {
     shutdown(system)
@@ -38,5 +39,9 @@ class AkkaQuickstartSpec(_system: ActorSystem)
     }
   }
   //#first-test
+
+
+
+
 }
 //#full-example
